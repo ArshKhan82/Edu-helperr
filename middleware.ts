@@ -1,5 +1,3 @@
-//edu_helper
-
 import { clerkMiddleware } from "@clerk/nextjs/server";
 
 export default clerkMiddleware();
