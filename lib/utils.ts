@@ -89,7 +89,9 @@ export function removeKeysFromQuery({
 export const debounce = (func: (...args: unknown[]) => void, delay: number) => {
    let timeoutId: NodeJS.Timeout | null;
    return (...args: unknown[]) => {
-      if (timeoutId) clearTimeout(timeoutId);
+      if (timeoutId) {
+         clearTimeout(timeoutId);
+      }
       timeoutId = setTimeout(() => func(...args), delay);
    };
 };
@@ -123,8 +125,9 @@ export const download = (url: string, filename: string) => {
          const a = document.createElement("a");
          a.href = blobURL;
 
-         if (filename && filename.length)
+         if (filename && filename.length) {
             a.download = `${filename.replace(" ", "_")}.png`;
+         }
          document.body.appendChild(a);
          a.click();
       })
